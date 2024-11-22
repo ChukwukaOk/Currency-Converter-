@@ -1,4 +1,4 @@
-Chuka (Creator of Application) 
+Chukwuka (Creator of Application) 
 Tamer (Code Tester) 
 Elijah (Debugger)
 Reyanna (Proof Reader)
