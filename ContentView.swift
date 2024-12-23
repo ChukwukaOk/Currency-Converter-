@@ -4,7 +4,6 @@
 //
 //  Created by Chukwuka Okwusiuno on 2024-05-31.
 //
-
 import SwiftUI
 
 struct CurrencyInfo {
@@ -239,6 +238,7 @@ struct ExchangeRates: Codable {
         case rates = "conversion_rates"
     }
 }
+
 
 
 
