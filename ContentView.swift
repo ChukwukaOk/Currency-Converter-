@@ -157,15 +157,15 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 12) { // Further reduced spacing
                     headerView
-                        .padding(.top, 40)
+                        .padding(.top, 20) // Further reduced top padding
                     
                     currencyListView
                         .padding(.horizontal)
                     
                     startButton
-                        .padding(.bottom, 40)
+                        .padding(.bottom, 20) // Further reduced bottom padding
                 }
                 .frame(minHeight: geometry.size.height)
             }
@@ -176,13 +176,14 @@ struct WelcomeView: View {
     
     private var headerView: some View {
         Text("Currency Converter")
-            .font(.system(size: 32, weight: .bold))
+            .font(.system(size: 24, weight: .bold)) // Further reduced font size
             .foregroundColor(.blue)
-            .padding(.bottom, 20)
+            .padding(.bottom, 12) // Further reduced bottom padding
+            .frame(maxWidth: .infinity, alignment: .center)
     }
     
     private var currencyListView: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 6) { // Further reduced spacing
             ForEach(currencyData.indices, id: \.self) { index in
                 currencyRow(info: currencyData[index])
             }
@@ -190,26 +191,27 @@ struct WelcomeView: View {
     }
     
     private func currencyRow(info: CurrencyInfo) -> some View {
-        HStack(spacing: 12) {
+        VStack(spacing: 4) { // Further reduced spacing
             Text(info.countryFlag)
-                .font(.system(size: 30))
+                .font(.system(size: 20)) // Further reduced flag size
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .center, spacing: 1) { // Further reduced spacing
                 Text("\(info.code) (\(info.symbol))")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: 12, weight: .semibold)) // Further reduced font size
+                    .frame(maxWidth: .infinity, alignment: .center)
                 
                 Text(info.name)
-                    .font(.system(size: 14))
+                    .font(.system(size: 10)) // Further reduced font size
                     .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
-            
-            Spacer()
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 6) // Further reduced padding
+        .padding(.horizontal, 8) // Further reduced padding
+        .frame(maxWidth: .infinity)
         .background(Color.white)
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+        .cornerRadius(8) // Further reduced corner radius
+        .shadow(color: Color.black.opacity(0.06), radius: 2, x: 0, y: 1) // Further reduced shadow
     }
     
     private var startButton: some View {
@@ -217,13 +219,13 @@ struct WelcomeView: View {
             showingConverter = true
         }) {
             Text("Start Converting")
-                .font(.headline)
+                .font(.system(size: 14, weight: .semibold)) // Further reduced font size
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
-                .padding()
+                .padding(.vertical, 10) // Further reduced padding
                 .background(Color.blue)
-                .cornerRadius(12)
-                .padding(.horizontal, 20)
+                .cornerRadius(8) // Further reduced corner radius
+                .padding(.horizontal, 12) // Further reduced horizontal padding
         }
     }
 }
@@ -237,4 +239,7 @@ struct ExchangeRates: Codable {
         case rates = "conversion_rates"
     }
 }
+
+
+
 
